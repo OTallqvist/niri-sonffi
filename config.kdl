@@ -263,6 +263,7 @@ layout {
 
 workspace "terminal"
 workspace "browser"
+workspace "music"
 workspace "messengers"
 workspace "launchers"
 workspace "games"
@@ -283,7 +284,6 @@ hotkey-overlay {
     // skip-at-startup
 }
 
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 prefer-no-csd
@@ -294,8 +294,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
     // off
-
-    slowdown 1
+    slowdown 0.5
 }
 
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
@@ -315,15 +314,35 @@ window-rule {
 		match app-id=r#"firefox$"#
 		open-on-workspace "browser"
 }
+window-rule {
+		match app-id=r#"spotify"#
+		open-on-workspace "music"
+}
+window-rule {
+		match app-id=r#"Minecraft.*"#
+		open-on-workspace "games"
+}
+window-rule {
+		match app-id=r#"steam_app_.*"#
+		open-on-workspace "games"
+}
+window-rule {
+		match app-id=r#".*lutris.*"#
+		open-on-workspace "launchers"
+}
+window-rule {
+		match app-id=r#"steam"#
+		open-on-workspace "launchers"
+}
+window-rule {
+		match app-id=r#"telegram"#
+		open-on-workspace "messengers"
+}
 
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
     block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
 }
 
 binds {
@@ -333,10 +352,6 @@ binds {
     Mod+Shift+T { move-column-to-workspace "terminal"; }
     Mod+C { focus-workspace "code"; }
     Mod+Shift+C { move-column-to-workspace "code"; }
-
-    // Most actions that you can bind here can also be invoked programmatically with
-    // `niri msg action do-something`.
-
     Mod+Shift+O { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
