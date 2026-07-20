@@ -75,37 +75,15 @@ input {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
-
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
-
-    // Transform allows to rotate the output counter-clockwise, valid values are:
-    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
-
-    // Position of the output in the global coordinate space.
-    // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-    // The cursor can only move between directly adjacent outputs.
-    // Output scale and rotation has to be taken into account for positioning:
-    // outputs are sized in logical, or scaled, pixels.
-    // For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-    // so to put another output directly adjacent to it on the right, set its x to 1920.
-    // If the position is unset or results in an overlap, the output is instead placed
-    // automatically.
-    position x=1280 y=0
+    position x=0 y=1440
 }
-
+output "HDMI-A-1" {
+    position x=0 y=0
+}
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
@@ -306,6 +284,7 @@ window-rule {
     open-floating true
 }
 
+//*********************WORKSPACE WINDOW RULES********************* 
 window-rule {
 		match app-id=r#"kitty$"#
 		open-on-workspace "terminal"
@@ -315,7 +294,7 @@ window-rule {
 		open-on-workspace "browser"
 }
 window-rule {
-		match app-id=r#"spotify"#
+		match app-id=r#"Spotify"#
 		open-on-workspace "music"
 }
 window-rule {
@@ -348,16 +327,23 @@ window-rule {
 binds {
     Mod+B { focus-workspace "browser"; }
     Mod+Shift+B { move-column-to-workspace "browser"; }
-    Mod+T { focus-workspace "terminal"; }
-    Mod+Shift+T { move-column-to-workspace "terminal"; }
-    Mod+C { focus-workspace "code"; }
-    Mod+Shift+C { move-column-to-workspace "code"; }
+    Mod+C { focus-workspace "terminal"; }
+    Mod+Shift+C { move-column-to-workspace "terminal"; }
+    Mod+M { focus-workspace "music"; }
+    Mod+Shift+M { move-column-to-workspace "music"; }
+    Mod+V { focus-workspace "messengers"; }
+    Mod+Shift+V { move-column-to-workspace "messengers"; }
+    Mod+N { focus-workspace "launchers"; }
+    Mod+Shift+N { move-column-to-workspace "launchers"; }
+    Mod+G { focus-workspace "games"; }
+    Mod+Shift+G { move-column-to-workspace "games"; }
+
     Mod+Shift+O { show-hotkey-overlay; }
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
     Mod+Shift+Z hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+Z hotkey-overlay-title="Suspend" { spawn-sh "swaylock & systemctl suspend"; }
+    Mod+Z allow-when-locked=true hotkey-overlay-title="Suspend" { spawn-sh "swaylock & systemctl suspend"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc. For example, this is a standard bind to toggle the screen reader (orca).
     // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
@@ -394,13 +380,15 @@ binds {
 
     Mod+Left { focus-column-first; }
     Mod+Right  { focus-column-last; }
-    Mod+Ctrl+Left { move-column-to-first; }
-    Mod+Ctrl+Right  { move-column-to-last; }
+    // Mod+Ctrl+Left { move-column-to-first; }
+    // Mod+Ctrl+Right  { move-column-to-last; }
 
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    // Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    // Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    // Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    // Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    Mod+Space {move-workspace-to-monitor-next; }
 
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
@@ -409,19 +397,6 @@ binds {
 
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
-
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind.
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-
-    Mod+WheelScrollRight      { focus-column-right; }
-    Mod+WheelScrollLeft       { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
 
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
@@ -445,9 +420,6 @@ binds {
     Mod+Shift+9 { move-column-to-workspace 9; }
 
 
-    // The following binds move the focused window in and out of a column.
-    // If the window is alone, they will consume it into the nearby column to the side.
-    // If the window is already in a column, they will expel it out.
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
@@ -466,11 +438,11 @@ binds {
     // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
-    Mod+M { maximize-window-to-edges; }
+    Mod+Ctrl+F { maximize-window-to-edges; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    // Mod+Ctrl+F { expand-column-to-available-width; }
     // Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
 
@@ -489,8 +461,8 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    // Mod+V       { toggle-window-floating; }
+    // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
 
     Print { screenshot; }
