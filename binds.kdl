@@ -15,15 +15,13 @@ binds {
 
     Mod+Shift+O { show-hotkey-overlay; }
 
+    Mod+S {spawn-sh "pkill --signal usr1 waybar";}
+
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
     Mod+Shift+Z hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Z allow-when-locked=true hotkey-overlay-title="Suspend" { spawn-sh "swaylock & systemctl suspend"; }
 
-    // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc. For example, this is a standard bind to toggle the screen reader (orca).
-    // Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-
-    // Using spawn-sh allows to pass multiple arguments together with the command.
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
@@ -46,18 +44,13 @@ binds {
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+H  { consume-or-expel-window-left; }
+    Mod+Shift+L { consume-or-expel-window-right; }
     Mod+Shift+J     { move-window-down; }
     Mod+Shift+K     { move-window-up; }
-    Mod+Shift+L     { move-column-right; }
 
     Mod+Left { focus-column-first; }
     Mod+Right  { focus-column-last; }
-
-    // Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    // Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    // Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    // Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     Mod+Space {move-workspace-to-monitor-next; }
 
@@ -88,10 +81,6 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 
-
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
@@ -100,14 +89,14 @@ binds {
     Mod+Ctrl+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
 
-    Mod+F { maximize-column; }
+    Mod+F { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
 
     // While maximize-column leaves gaps and borders around the window,
     // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
-    Mod+Ctrl+F { maximize-window-to-edges; }
+    Mod+Ctrl+F { maximize-column; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -115,23 +104,16 @@ binds {
     // Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
 
-    // Finer width adjustments.
     // This command can also:
     // * set width in pixels: "1000"
     // * adjust width in pixels: "-5" or "+5"
     // * set width as a percentage of screen width: "25%"
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
-    // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
-    // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
+    Mod+Minus { set-column-width "-5%"; }
+    Mod+Plus { set-column-width "+5%"; }
+    Mod+Shift+Minus { set-window-height "-5%"; }
+    Mod+Shift+Plus { set-window-height "+5%"; }
 
-    // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
-
-    // Mod+V       { toggle-window-floating; }
-    // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
 
     Print { screenshot; }
