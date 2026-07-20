@@ -81,6 +81,16 @@ layout {
         // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
+    tab-indicator {
+        hide-when-single-tab
+        position "left"
+        place-within-column
+        width 5
+        length total-proportion=1.0
+        gaps-between-tabs 10
+        active-color "#7fc8ff"
+        inactive-color "#ffffff"
+    }
 }
 
 workspace "terminal"
