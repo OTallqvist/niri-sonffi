@@ -14,7 +14,8 @@ binds {
 
     Mod+Shift+O { show-hotkey-overlay; }
 
-    Mod+S {spawn-sh "pkill --signal usr1 waybar";}
+    Mod+S {spawn-sh "~/.cfg/niri/suspend_active_window.fish";} //suspend process
+    Mod+Shift+S {spawn-sh "pkill --signal usr1 waybar";}
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
