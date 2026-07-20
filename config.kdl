@@ -93,12 +93,24 @@ layout {
     }
 }
 
-workspace "terminal"
-workspace "browser"
-workspace "music"
-workspace "messengers"
-workspace "launchers"
-workspace "games"
+workspace "terminal" {
+    open-on-output "HDMI-A-1"
+}
+workspace "browser"{
+    open-on-output "HDMI-A-1"
+}
+workspace "music"{
+    open-on-output "eDP-1"
+}
+workspace "messengers"{
+    open-on-output "eDP-1"
+}
+workspace "launchers"{
+    open-on-output "eDP-1"
+}
+workspace "games"{
+    open-on-output "HDMI-A-1"
+}
 
 // Note that running niri as a session supports xdg-desktop-autostart,
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
