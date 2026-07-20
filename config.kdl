@@ -1,6 +1,10 @@
 include "binds.kdl"
 include "window_rules.kdl"
 
+overview {
+    zoom 0.33
+}
+
 // https://niri-wm.github.io/niri/Configuration:-Input
 input {
     keyboard {
