@@ -119,6 +119,7 @@ workspace "games"{
 // Note that running niri as a session supports xdg-desktop-autostart,
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 spawn-at-startup "waybar"
+spawn-at-startup "copyq --start-server"
 
 hotkey-overlay {
     skip-at-startup
