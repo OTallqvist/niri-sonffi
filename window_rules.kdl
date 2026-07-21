@@ -9,38 +9,40 @@ window-rule {
     open-floating true
 }
 
-//*********************WORKSPACE WINDOW RULES********************* 
 window-rule {
-		match app-id=r#"kitty$"#
-		open-on-workspace "terminal"
+	match app-id=r#"kitty$"#
+	open-on-workspace "terminal"
 }
 window-rule {
-		match app-id=r#"firefox$"#
-		open-on-workspace "browser"
+	match app-id=r#"firefox$"#
+	open-on-workspace "browser"
+	open-maximized true
 }
 window-rule {
-		match app-id=r#"Spotify"#
-		open-on-workspace "music"
+	match app-id=r#"Spotify"#
+	open-on-workspace "music"
+	open-maximized true
 }
 window-rule {
-		match app-id=r#"Minecraft.*"#
-		open-on-workspace "games"
+	match app-id=r#"Minecraft.*"#
+	open-on-workspace "games"
 }
 window-rule {
-		match app-id=r#"steam_app_.*"#
-		open-on-workspace "games"
+	match app-id=r#"steam_app_.*"#
+	open-on-workspace "games"
 }
 window-rule {
-		match app-id=r#".*lutris.*"#
-		open-on-workspace "launchers"
+	match app-id=r#".*lutris.*"#
+	open-on-workspace "launchers"
 }
 window-rule {
-		match app-id=r#"steam"#
-		open-on-workspace "launchers"
+	match app-id=r#"steam"#
+	open-on-workspace "launchers"
+
 }
 window-rule {
-		match app-id=r#"telegram"#
-		open-on-workspace "messengers"
+	match app-id=r#"telegram"#
+	open-on-workspace "messengers"
 }
 
 window-rule {
