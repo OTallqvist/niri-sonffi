@@ -1,16 +1,16 @@
 binds {
-    Mod+B { focus-workspace "browser"; }
-    Mod+Shift+B { move-column-to-workspace "browser"; }
-    Mod+C { focus-workspace "terminal"; }
-    Mod+Shift+C { move-column-to-workspace "terminal"; }
-    Mod+M { focus-workspace "music"; }
-    Mod+Shift+M { move-column-to-workspace "music"; }
-    Mod+V { focus-workspace "messengers"; }
-    Mod+Shift+V { move-column-to-workspace "messengers"; }
-    Mod+N { focus-workspace "launchers"; }
-    Mod+Shift+N { move-column-to-workspace "launchers"; }
-    Mod+G { focus-workspace "games"; }
-    Mod+Shift+G { move-column-to-workspace "games"; }
+    Mod+1 { focus-workspace "terminal"; }
+    Mod+Shift+1 { move-column-to-workspace "terminal"; }
+    Mod+2 { focus-workspace "browser"; }
+    Mod+Shift+2 { move-column-to-workspace "browser"; }
+    Mod+3 { focus-workspace "music"; }
+    Mod+Shift+3 { move-column-to-workspace "music"; }
+    Mod+4 { focus-workspace "messengers"; }
+    Mod+Shift+4 { move-column-to-workspace "messengers"; }
+    Mod+5 { focus-workspace "launchers"; }
+    Mod+Shift+5 { move-column-to-workspace "launchers"; }
+    Mod+6 { focus-workspace "games"; }
+    Mod+Shift+6 { move-column-to-workspace "games"; }
 
     Mod+Shift+O { show-hotkey-overlay; }
 
@@ -62,21 +62,21 @@ binds {
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
+    // Mod+1 { focus-workspace 1; }
+    // Mod+2 { focus-workspace 2; }
+    // Mod+3 { focus-workspace 3; }
+    // Mod+4 { focus-workspace 4; }
+    // Mod+5 { focus-workspace 5; }
+    // Mod+6 { focus-workspace 6; }
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
+    // Mod+Shift+1 { move-column-to-workspace 1; }
+    // Mod+Shift+2 { move-column-to-workspace 2; }
+    // Mod+Shift+3 { move-column-to-workspace 3; }
+    // Mod+Shift+4 { move-column-to-workspace 4; }
+    // Mod+Shift+5 { move-column-to-workspace 5; }
+    // Mod+Shift+6 { move-column-to-workspace 6; }
     Mod+Shift+7 { move-column-to-workspace 7; }
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
