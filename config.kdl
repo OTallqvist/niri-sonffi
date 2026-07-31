@@ -10,8 +10,8 @@ input {
     keyboard {
         xkb {
             // For more information, see xkeyboard-config(7).
-            layout "fi"
-            options "caps:escape"
+            layout "fi, se(dvorak)"
+            options "caps:escape, altwin:swap_lalt_lwin, grp:rshift_toggle"
             // If this section is empty, niri will fetch xkb settings
             // from org.freedesktop.locale1. You can control these using
             // localectl set-x11-keymap.
