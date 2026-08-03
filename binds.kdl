@@ -38,6 +38,7 @@ binds {
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
+    Mod+Shift+Q repeat=false { spawn-sh "kill -9 $(niri msg focused-window | grep PID: | tr -d 'PID: ')"; } //force kill
 
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-down; }
