@@ -131,7 +131,7 @@ workspace "games"{
 spawn-sh-at-startup "swaybg -i ~/pictures/bg/20260727_220057.jpg"
 spawn-sh-at-startup "openrgb -d 6 -m static -c 00ffff"
 spawn-sh-at-startup "copyq --start-server"
-spawn-sh-at-startup "quickshell -c statusbar"
+spawn-sh-at-startup "~/.config/palkki/target/release/palkki_config"
 
 hotkey-overlay {
     skip-at-startup
