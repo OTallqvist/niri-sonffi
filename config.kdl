@@ -1,53 +1,9 @@
+include "input.kdl"
 include "binds.kdl"
 include "window_rules.kdl"
 
 overview {
     zoom 0.33
-}
-
-// https://niri-wm.github.io/niri/Configuration:-Input
-input {
-    keyboard {
-        xkb {
-            // For more information, see xkeyboard-config(7).
-            layout "fi, se(dvorak)"
-            options "caps:escape, altwin:swap_lalt_lwin, grp:rshift_toggle"
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
-        }
-        numlock
-    }
-    // Omitting settings disables them, or leaves them at their default values.
-    // All commented-out settings here are examples, not defaults.
-    touchpad {
-        // off
-        tap
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
-    }
-
-    mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "no-scroll"
-    }
-
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
-    warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
 }
 
 // https://niri-wm.github.io/niri/Configuration:-Outputs
@@ -56,13 +12,6 @@ output "eDP-1" {
 }
 output "HDMI-A-1" {
     position x=0 y=0
-}
-
-// Disable the hot corners.
-gestures {
-    hot-corners {
-        off
-    }
 }
 
 // https://niri-wm.github.io/niri/Configuration:-Layout
@@ -131,7 +80,8 @@ workspace "games"{
 spawn-sh-at-startup "swaybg -i ~/pictures/bg/20260727_220057.jpg"
 spawn-sh-at-startup "openrgb -d 6 -m static -c 00ffff"
 spawn-sh-at-startup "copyq --start-server"
-spawn-sh-at-startup "~/.config/palkki/target/release/palkki_config"
+spawn-sh-at-startup "dunst"
+spawn-sh-at-startup "~/.config/palkki/target/release/palkki_config &> ~/.local/state/palkki/palkki.log"
 
 hotkey-overlay {
     skip-at-startup

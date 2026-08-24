@@ -35,6 +35,8 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
+    XF86TouchpadToggle allow-when-locked=true  { spawn-sh "$HOME/.config/niri/toggle_touchpad/toggle_touchpad.sh"; }
+
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
