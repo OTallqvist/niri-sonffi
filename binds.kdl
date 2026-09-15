@@ -37,6 +37,8 @@ binds {
 
     XF86TouchpadToggle allow-when-locked=true  { spawn-sh "$HOME/.config/niri/toggle_touchpad/toggle_touchpad.sh"; }
 
+    XF86Launch1 { spawn-sh "rog-control-center"; }
+
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
