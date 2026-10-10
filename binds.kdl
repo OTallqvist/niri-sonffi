@@ -51,10 +51,10 @@ binds {
     Mod+Shift+N     { move-window-down; }
     Mod+Shift+T     { move-window-up; }
 
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    Mod+J     { focus-column-left; }
+    Mod+K     { focus-window-down; }
+    Mod+L     { focus-window-up; }
+    Mod+odiaeresis     { focus-column-right; }
 
     Mod+Shift+H  { consume-or-expel-window-left; }
     Mod+Shift+L { consume-or-expel-window-right; }
