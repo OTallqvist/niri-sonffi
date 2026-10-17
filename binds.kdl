@@ -7,10 +7,12 @@ binds {
     Mod+Shift+3 { move-column-to-workspace "music"; }
     Mod+4 { focus-workspace "messengers"; }
     Mod+Shift+4 { move-column-to-workspace "messengers"; }
-    Mod+5 { focus-workspace "launchers"; }
-    Mod+Shift+5 { move-column-to-workspace "launchers"; }
-    Mod+6 { focus-workspace "games"; }
-    Mod+Shift+6 { move-column-to-workspace "games"; }
+    Mod+5 { focus-workspace "work"; }
+    Mod+Shift+5 { move-column-to-workspace "work"; }
+    Mod+6 { focus-workspace "launchers"; }
+    Mod+Shift+6 { move-column-to-workspace "launchers"; }
+    Mod+7 { focus-workspace "games"; }
+    Mod+Shift+7 { move-column-to-workspace "games"; }
 
     Mod+Shift+O { show-hotkey-overlay; }
 
@@ -80,7 +82,7 @@ binds {
     // Mod+4 { focus-workspace 4; }
     // Mod+5 { focus-workspace 5; }
     // Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
+    // Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
     // Mod+Shift+1 { move-column-to-workspace 1; }
@@ -89,7 +91,7 @@ binds {
     // Mod+Shift+4 { move-column-to-workspace 4; }
     // Mod+Shift+5 { move-column-to-workspace 5; }
     // Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
+    // Mod+Shift+7 { move-column-to-workspace 7; }
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 

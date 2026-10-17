@@ -65,6 +65,9 @@ workspace "music"{
 workspace "messengers"{
     open-on-output "eDP-1"
 }
+workspace "work"{
+    open-on-output "HDMI-A-1"
+}
 workspace "launchers"{
     open-on-output "eDP-1"
 }
